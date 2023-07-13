@@ -42,9 +42,7 @@ pub fn build(b: *std.build.Builder) void {
     }, &.{
         "-std=c99",
         "-Wall",
-        "-DLUA_ANSI",
-        "-DENABLE_CJSON_GLOBAL",
-        "-DLUA_USE_MKSTEMP",
+        "-Wextra",
     });
     lua.install();
 }
