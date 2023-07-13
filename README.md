@@ -1,3 +1,3 @@
 # Zig build-system example
 
-Build with `zig build`
+Build lua as a static library (liblua.a) with `zig build`
