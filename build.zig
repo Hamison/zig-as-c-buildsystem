@@ -1,9 +1,6 @@
 const std = @import("std");
 
-pub fn build(b: *std.build.Builder) void {
-    const target = b.standardTargetOptions(.{});
-    const mode = b.standardReleaseOptions();
-
+fn build_lua(b: *std.build.Builder, target: std.zig.CrossTarget, mode: std.builtin.Mode) void {
     const lua = b.addStaticLibrary("lua", null);
     lua.setTarget(target);
     lua.setBuildMode(mode);
@@ -45,4 +42,11 @@ pub fn build(b: *std.build.Builder) void {
         "-Wextra",
     });
     lua.install();
+}
+
+pub fn build(b: *std.build.Builder) void {
+    const target = b.standardTargetOptions(.{});
+    const mode = b.standardReleaseOptions();
+
+    build_lua(b, target, mode);
 }
